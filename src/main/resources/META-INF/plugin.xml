@@ -29,7 +29,7 @@
 
   <actions>
     <action id="org.abc.action.PopupDialogAction" class="org.abc.action.PopupDialogAction"
-            text="Action Basics Plugin: Pop Dialog Action" description="SDK action example">
+            text="TEST:Display City Weather" description="Display City Weather">
       <add-to-group group-id="EditorPopupMenu" anchor="first"/>
       <override-text place="MainMenu" text="Pop Dialog Action"/>
       <keyboard-shortcut first-keystroke="control alt A" second-keystroke="C" keymap="$default"/>
@@ -38,30 +38,30 @@
 
 
     <!-- Add Ask question action to Tools Menu -->
-    <action id="StackOverflow.AskQuestion.ToolsMenu"
-            class="org.abc.action.AskQuestionAction"
-            text="Ask Question on Stack Overflow"
-            icon="so-icon-16x16.png"
-            description="Ask a Question on Stack Overflow">
-      <add-to-group group-id="ToolsMenu" anchor="first"/>
-    </action>
+<!--    <action id="StackOverflow.AskQuestion.ToolsMenu"-->
+<!--            class="org.abc.action.AskQuestionAction"-->
+<!--            text="Ask Question on Stack Overflow"-->
+<!--            icon="so-icon-16x16.png"-->
+<!--            description="Ask a Question on Stack Overflow">-->
+<!--      <add-to-group group-id="ToolsMenu" anchor="first"/>-->
+<!--    </action>-->
 
     <!-- Add action to search Stack Overflow from file editor -->
     <action id="StackOverflow.Search.Editor"
             class="org.abc.action.SearchAction"
-            text="TEST: Generate Unit Test"
-            description="Generate Unit Test">
+            text="TEST: Display chosen snippet"
+            description="Display chosen snippet">
       <add-to-group group-id="EditorPopupMenu" anchor="first"/>
     </action>
 
     <!-- Add action to search Stack Overflow from console editor -->
-    <action id="StackOverflow.Search.Console"
-            class="org.abc.action.SearchAction"
-            text="Search on Stack Overflow"
-            icon="so-icon-16x16.png"
-            description="Search on Stack Overflow">
-      <add-to-group group-id="ConsoleEditorPopupMenu" anchor="first"/>
-    </action>
+<!--    <action id="StackOverflow.Search.Console"-->
+<!--            class="org.abc.action.SearchAction"-->
+<!--            text="TEST: Display City Weather"-->
+<!--            icon="so-icon-16x16.png"-->
+<!--            description="Display City Weather">-->
+<!--      <add-to-group group-id="ConsoleEditorPopupMenu" anchor="first"/>-->
+<!--    </action>-->
 
 
 
