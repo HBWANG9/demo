@@ -1,0 +1,122 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+  <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+  <id>org.abc.action</id>
+
+  <!-- Public plugin name should be written in Title Case.
+       Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+  <name>Demo</name>
+
+  <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+  <vendor email="support@yourcompany.com" url="https://www.yourcompany.com">YourCompany</vendor>
+
+  <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+       Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+       Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+  <description><![CDATA[
+    This is my first plugin project.<br>
+    <em>most HTML tags may be used</em>
+  ]]></description>
+
+  <!-- Product and plugin compatibility requirements.
+       Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+  <depends>com.intellij.modules.platform</depends>
+
+  <!-- Extension points defined by the plugin.
+       Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+  <extensions defaultExtensionNs="com.intellij">
+  </extensions>
+
+  <actions>
+    <action id="org.abc.action.PopupDialogAction" class="org.abc.action.PopupDialogAction"
+            text="Action Basics Plugin: Pop Dialog Action" description="SDK action example">
+      <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+      <override-text place="MainMenu" text="Pop Dialog Action"/>
+      <keyboard-shortcut first-keystroke="control alt A" second-keystroke="C" keymap="$default"/>
+      <mouse-shortcut keystroke="control button3 doubleClick" keymap="$default"/>
+    </action>
+
+
+    <!-- Add Ask question action to Tools Menu -->
+    <action id="StackOverflow.AskQuestion.ToolsMenu"
+            class="org.abc.action.AskQuestionAction"
+            text="Ask Question on Stack Overflow"
+            icon="so-icon-16x16.png"
+            description="Ask a Question on Stack Overflow">
+      <add-to-group group-id="ToolsMenu" anchor="first"/>
+    </action>
+
+    <!-- Add action to search Stack Overflow from file editor -->
+    <action id="StackOverflow.Search.Editor"
+            class="org.abc.action.SearchAction"
+            text="TEST: Generate Unit Test"
+            description="Generate Unit Test">
+      <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+    </action>
+
+    <!-- Add action to search Stack Overflow from console editor -->
+    <action id="StackOverflow.Search.Console"
+            class="org.abc.action.SearchAction"
+            text="Search on Stack Overflow"
+            icon="so-icon-16x16.png"
+            description="Search on Stack Overflow">
+      <add-to-group group-id="ConsoleEditorPopupMenu" anchor="first"/>
+    </action>
+
+
+
+
+  </actions>
+
+  <!--
+      All of the following menu groups add the action PopupDialogAction to menus in different ways.
+      Note that even though these groups reuse the same action class, in each use the action ids are unique.
+
+      GroupedActions demonstrates declaring an action group using the default ActionGroup implementation provided by the
+      IntelliJ Platform framework. (Note the lack of a group "class" attribute.) GroupedActions gets inserted after
+      PopupDialogAction in the Tools menu. Because the group's implementation is default, it cannot impose
+      enable/disable conditions. Instead it must rely on the conditions imposed by the parent menu where it is inserted.
+      It declares one action in the group.
+    -->
+<!--  <group id="org.abc.action.GroupedActions"-->
+<!--         text="Static Grouped Actions" description="SDK statically grouped action example"-->
+<!--         popup="true" icon="SdkIcons.Sdk_default_icon">-->
+<!--    <add-to-group group-id="ToolsMenu" anchor="after" relative-to-action="org.abc.action.PopupDialogAction"/>-->
+<!--    <action id="org.abc.action.GroupPopDialogAction" class="org.abc.action.PopupDialogAction"-->
+<!--            text="A Group Action" description="SDK static grouped action example"-->
+<!--            icon="SdkIcons.Sdk_default_icon">-->
+<!--    </action>-->
+<!--  </group>-->
+<!--  &lt;!&ndash;-->
+<!--    CustomDefaultActionGroup demonstrates declaring an action group based on a ActionGroup class supplied by this-->
+<!--    plugin. This group is to be inserted atop the Editor Popup Menu. It declares one action in the group.-->
+<!--    The group and action implementations are internationalized, so their declarations do not use the text or-->
+<!--    description attributes. Instead, the information is defined in the BasicActionsBundle.-->
+<!--  &ndash;&gt;-->
+<!--  <group id="org.abc.action.CustomDefaultActionGroup"-->
+<!--         class="org.abc.action.CustomDefaultActionGroup"-->
+<!--         popup="true">-->
+<!--    <add-to-group group-id="EditorPopupMenu" anchor="first"/>-->
+<!--    <action id="org.abc.action.CustomGroupedAction" class="org.abc.action.PopupDialogAction"-->
+<!--            icon="SdkIcons.Sdk_default_icon"/>-->
+<!--  </group>-->
+<!--  &lt;!&ndash;-->
+<!--    DynamicActionGroup demonstrates declaring an action group without a static action declaration.-->
+<!--    An action is added to the group programmatically in the DynamicActionGroup implementation.-->
+<!--  &ndash;&gt;-->
+<!--  <group id="org.abc.action.DynamicActionGroup" class="org.abc.action.DynamicActionGroup"-->
+<!--         popup="true" text="Dynamically Grouped Actions" description="SDK dynamically grouped action example"-->
+<!--         icon="SdkIcons.Sdk_default_icon">-->
+<!--    <add-to-group group-id="ToolsMenu" anchor="after" relative-to-action="org.abc.action.GroupedActions"/>-->
+<!--  </group>-->
+  
+<!--  <applicationListeners>-->
+<!--    <listener class="com.abc.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>-->
+<!--  </applicationListeners>-->
+
+  <extensions defaultExtensionNs="com.intellij">
+    <toolWindow id="AI Code Editor" secondary="true" icon="AllIcons.Toolwindows.WebToolWindow" anchor="left"
+                factoryClass="org.abc.action.CalendarToolWindowFactory"/>
+  </extensions>
+
+</idea-plugin>
