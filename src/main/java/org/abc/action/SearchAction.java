@@ -2,13 +2,12 @@ package org.abc.action;
 
 import com.intellij.ide.BrowserUtil;
 import com.intellij.lang.Language;
-import com.intellij.openapi.actionSystem.ActionManager;
-import com.intellij.openapi.actionSystem.AnAction;
-import com.intellij.openapi.actionSystem.AnActionEvent;
-import com.intellij.openapi.actionSystem.CommonDataKeys;
+import com.intellij.openapi.actionSystem.*;
 import com.intellij.openapi.application.ApplicationManager;
+import com.intellij.openapi.components.ServiceManager;
 import com.intellij.openapi.editor.CaretModel;
 import com.intellij.openapi.editor.Editor;
+import com.intellij.openapi.project.Project;
 import com.intellij.psi.PsiFile;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -103,7 +102,11 @@ public class SearchAction extends AnAction
 //                CalendarToolWindowFactory toolWindowFactory = ApplicationManager.getApplication().getComponent(CalendarToolWindowFactory.class);
 //                toolWindowFactory.displayMessage(responseString);
 
-
+                Project project = e.getData(PlatformDataKeys.PROJECT);
+                MyCustomToolWindowFactory.ProjectService projectService = ServiceManager.getService(project, MyCustomToolWindowFactory.ProjectService.class);
+                MyCustomToolWindow toolWindow = projectService.getMyCustomToolWindow();
+//                toolWindow.displayMessage(responseString);
+                toolWindow.displayMessage(query);
 
 
             } catch (IOException ex) {

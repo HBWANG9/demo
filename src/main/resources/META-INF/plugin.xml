@@ -116,7 +116,9 @@
 
   <extensions defaultExtensionNs="com.intellij">
     <toolWindow id="AI Code Editor" secondary="true" icon="AllIcons.Toolwindows.WebToolWindow" anchor="left"
-                factoryClass="org.abc.action.CalendarToolWindowFactory"/>
+                factoryClass="org.abc.action.MyCustomToolWindowFactory"/>
+    <projectService serviceInterface="org.abc.action.MyCustomToolWindowFactory$ProjectService"
+                    serviceImplementation="org.abc.action.MyCustomToolWindowFactory$ProjectService"/>
   </extensions>
 
 </idea-plugin>
